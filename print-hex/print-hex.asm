@@ -21,11 +21,9 @@ print_hex:
     and ax, 0x000f
     cmp ax, 10
     jl digit1
-    add ax, 87
-    jmp notdigit1
+    add ax, 39
 digit1:
     add ax, 48
-notdigit1:
     mov [HEX_OUT + 5], al
     sub bx, 1
 
@@ -33,12 +31,10 @@ notdigit1:
     mov ax, dx
     and ax, 0x000f
     cmp ax, 10
-    jl digit2
-    add ax, 87
-    jmp notdigit2
+    jl digit1
+    add ax, 39
 digit2:
     add ax, 48
-notdigit2:
     mov [HEX_OUT + 4], al
     sub bx, 1
 
@@ -47,11 +43,9 @@ notdigit2:
     and ax, 0x000f
     cmp ax, 10
     jl digit3
-    add ax, 87
-    jmp notdigit3
+    add ax, 39
 digit3:
     add ax, 48
-notdigit3:
     mov [HEX_OUT + 3], al
     sub bx, 1
 
@@ -60,11 +54,9 @@ notdigit3:
     and ax, 0x000f
     cmp ax, 10
     jl digit4
-    add ax, 87
-    jmp notdigit4
+    add ax, 39
 digit4:
     add ax, 48
-notdigit4:
     mov [HEX_OUT + 2], al
     sub bx, 1
 
