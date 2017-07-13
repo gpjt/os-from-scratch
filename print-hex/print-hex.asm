@@ -15,7 +15,7 @@ print_hex:
     pusha
 
     mov bx, HEX_OUT
-    add bx, 6
+    add bx, 5
 
     mov ax, dx
     and ax, 0x000f
@@ -24,7 +24,7 @@ print_hex:
     add ax, 39
 digit1:
     add ax, 48
-    mov [HEX_OUT + 5], al
+    mov [bx], al
     sub bx, 1
 
     shr dx, 4
@@ -35,7 +35,7 @@ digit1:
     add ax, 39
 digit2:
     add ax, 48
-    mov [HEX_OUT + 4], al
+    mov [bx], al
     sub bx, 1
 
     shr dx, 4
@@ -46,7 +46,7 @@ digit2:
     add ax, 39
 digit3:
     add ax, 48
-    mov [HEX_OUT + 3], al
+    mov [bx], al
     sub bx, 1
 
     shr dx, 4
@@ -57,7 +57,7 @@ digit3:
     add ax, 39
 digit4:
     add ax, 48
-    mov [HEX_OUT + 2], al
+    mov [bx], al
     sub bx, 1
 
     mov bx, HEX_OUT
