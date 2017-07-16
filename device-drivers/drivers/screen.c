@@ -47,7 +47,7 @@ int set_cursor(int offset) {
 	port_byte_out(REG_SCREEN_CTRL, 14);
 	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset >> 8));
 	port_byte_out(REG_SCREEN_CTRL, 15);
-	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset));
+	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset & 0xff));
 }
 
 
