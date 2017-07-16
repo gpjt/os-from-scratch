@@ -66,7 +66,7 @@ int handle_scrolling(int offset) {
 	for (int row=1; row < MAX_ROWS; row++) {
 		memory_copy(
 			(char*) (get_screen_offset(0, row) + VIDEO_ADDRESS),
-			(char*) (get_screen_offset(0, row + 1) + VIDEO_ADDRESS),
+			(char*) (get_screen_offset(0, row - 1) + VIDEO_ADDRESS),
 			MAX_COLS * 2
 		);
 	}

@@ -27,6 +27,6 @@ void main() {
 	print("line 22\n");
 	print("line 23\n");
 	print("line 24\n");
-	// print("line 25\n");
+	print("line 25\n");
 	print_at("Center", 37, 13);
 }
