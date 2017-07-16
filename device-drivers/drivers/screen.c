@@ -133,8 +133,15 @@ void print_char(char character, int col, int row, int attribute_byte) {
 	for "print at cursor"
 */
 void print_at(char* message, int col, int row) {
-	for (int i=0; message[i] != 0; i++) {
-		print_char(message[i], col, row, WHITE_ON_BLACK);
+	// If we're given an offset, then move to it, and clear out
+	// col and row (because we'll use the cursor from then on)
+	if (col >= 0 && row >= 0) {
+		set_cursor(get_screen_offset(col, row));
+		col = -1;
+		row = -1;
+	}
+	for (int ii=0; message[ii] != 0; ii++) {
+		print_char(message[ii], col, row, WHITE_ON_BLACK);
 	}
 }
 
