@@ -105,11 +105,11 @@ void print_char(char character, int col, int row, int attribute_byte) {
 	if (character == '\n') {
 		// It's a newline.  We move to the *end of the current row*,
 		// which we get by dividing the current offset (into memory)
-		// by the number of bytes per row (twice MAX_ROWS).  After 
+		// by the number of bytes per row (twice MAX_COLS).  After 
 		// this if statement, we move on to the next offset -- so 
 		// once that's done, we'll be on the first column of the next
 		// row.
-		int current_row = offset / (2 * MAX_ROWS);
+		int current_row = offset / (2 * MAX_COLS);
 		offset = get_screen_offset(79, current_row);
 	} else {
 		vidmem[offset] = character;
