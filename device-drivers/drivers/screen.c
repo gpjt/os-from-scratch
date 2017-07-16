@@ -23,7 +23,7 @@ int get_cursor() {
 	// register we're interested in.  14 first: 
 	port_byte_out(REG_SCREEN_CTRL, 14);
 	// Then we read it, and (as it's the high byte) shift left by 8
-	int offset = port_byte_in(REG_SCREEN_DATA);
+	int offset = port_byte_in(REG_SCREEN_DATA) << 8;
 	// Now we select 15
 	port_byte_out(REG_SCREEN_CTRL, 15);
 	offset |= port_byte_in(REG_SCREEN_DATA);
@@ -47,7 +47,7 @@ int set_cursor(int offset) {
 	port_byte_out(REG_SCREEN_CTRL, 14);
 	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset >> 8));
 	port_byte_out(REG_SCREEN_CTRL, 15);
-	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset & 0xf));
+	port_byte_out(REG_SCREEN_DATA, (unsigned char) (offset));
 }
 
 
