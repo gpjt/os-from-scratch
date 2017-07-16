@@ -18,7 +18,7 @@ kernel/kernel_entry.o: kernel/kernel_entry.asm
 	nasm kernel/kernel_entry.asm -f elf -o kernel/kernel_entry.o
 
 %.o: %.c ${HEADERS}
-	gcc -m32 -ffreestanding -c $< -o $@
+	gcc -m32 -ffreestanding -I. -c $< -o $@
 
 clean:
 	rm -fr *.o *.bin *.img
